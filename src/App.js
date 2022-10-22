@@ -1,5 +1,11 @@
+import Header from "./components/Header/Header";
+
 function App() {
-  return <div>This is App</div>;
+  return (
+    <>
+      <Header />
+    </>
+  );
 }
 
 export default App;
