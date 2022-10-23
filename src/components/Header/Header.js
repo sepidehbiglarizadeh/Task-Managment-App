@@ -1,6 +1,5 @@
 import styles from "./Header.module.css";
 import logo from "../../assets/images/logo.png";
-import { FaRegListAlt } from "react-icons/fa";
 
 const Header = () => {
   return (

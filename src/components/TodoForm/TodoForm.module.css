@@ -1,0 +1,40 @@
+.form {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.formControl {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.formControl input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  flex: 1;
+  font-size: 1.8rem;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding-right: 40px;
+}
+
+.formControl input:focus {
+  border: 2px solid #818cf8;
+}
+
+.formControl button {
+  background-color: transparent;
+  border: none;
+  color: #818cf8;
+  cursor: pointer;
+  margin-left: 1rem;
+  font-size: 2.5rem;
+  position: absolute;
+  right: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
