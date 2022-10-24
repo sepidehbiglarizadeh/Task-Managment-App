@@ -2,7 +2,7 @@ import { FaEdit, FaTrashAlt } from "react-icons/fa";
 import { colors } from "../../colors";
 import styles from "./Todo.module.css";
 
-const Todo = ({ todo }) => {
+const Todo = ({ todo ,onDelete}) => {
   const item = colors[Math.floor(Math.random() * colors.length)];
 
   return (
@@ -22,7 +22,7 @@ const Todo = ({ todo }) => {
         <button className={styles.edit}>
           <FaEdit />
         </button>
-        <button className={styles.delete}>
+        <button className={styles.delete} onClick={onDelete}>
           <FaTrashAlt />
         </button>
       </div>

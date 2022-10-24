@@ -18,12 +18,17 @@ function App() {
     setTodos([...todos, newTodo]);
   };
 
+  const deleteTodoHandler=(id)=>{
+    const filteredTodos= todos.filter((todo)=> todo.id !== id);
+    setTodos(filteredTodos);
+  }
+
   return (
     <main>
       <Header />
       <section className="appContent">
         <TodoForm submitTodoHandler={addNewTodoHandler} />
-        <TodoList todos={todos} />
+        <TodoList todos={todos} onDelete={deleteTodoHandler}/>
       </section>
     </main>
   );
