@@ -2,6 +2,8 @@
   max-width: 500px;
   margin: 0 auto;
   margin-bottom: 2rem;
+  grid-column-start: 1;
+  grid-column-end: -1;
 }
 
 .formControl {

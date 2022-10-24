@@ -1,9 +1,9 @@
 import styles from "./TodoForm.module.css";
-import { FaPlusCircle } from "react-icons/fa";
+import { FaPlusCircle ,FaCheck} from "react-icons/fa";
 import { useEffect, useRef, useState } from "react";
 
-const TodoForm = ({submitTodoHandler}) => {
-  const [inputValue, setInputValue] = useState("");
+const TodoForm = ({submitTodoHandler,edit}) => {
+  const [inputValue, setInputValue] = useState(edit ? edit.text : "");
 
   const inputRef = useRef(null);
 
@@ -24,9 +24,9 @@ const TodoForm = ({submitTodoHandler}) => {
   return (
     <form className={styles.form} onSubmit={submitHandler}>
       <div className={styles.formControl}>
-        <input onChange={changeHandler} value={inputValue} ref={inputRef} />
+        <input onChange={changeHandler} value={inputValue} ref={inputRef} placeholder={edit ? "update todo..." : "add todo..."}/>
         <button>
-          <FaPlusCircle />
+          {edit ? <FaCheck/> : <FaPlusCircle />}
         </button>
       </div>
     </form>

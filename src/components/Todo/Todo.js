@@ -2,7 +2,7 @@ import { FaEdit, FaTrashAlt } from "react-icons/fa";
 import { colors } from "../../colors";
 import styles from "./Todo.module.css";
 
-const Todo = ({ todo ,onDelete}) => {
+const Todo = ({ todo ,onDelete,onEdit}) => {
   const item = colors[Math.floor(Math.random() * colors.length)];
 
   return (
@@ -19,7 +19,7 @@ const Todo = ({ todo ,onDelete}) => {
         </label>
       </div>
       <div className={styles.btnsWrapper}>
-        <button className={styles.edit}>
+        <button className={styles.edit} onClick={onEdit}>
           <FaEdit />
         </button>
         <button className={styles.delete} onClick={onDelete}>
