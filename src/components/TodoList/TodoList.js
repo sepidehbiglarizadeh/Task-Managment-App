@@ -3,7 +3,7 @@ import Todo from "../Todo/Todo";
 import TodoForm from "../TodoForm/TodoForm";
 import styles from "./TodoList.module.css";
 
-const TodoList = ({ todos, onDelete,onUpdateTodo }) => {
+const TodoList = ({ todos, onDelete,onUpdateTodo ,onCompleted}) => {
   const [edit, setEdit] = useState({
     id: null,
     text: "",
@@ -29,6 +29,7 @@ const TodoList = ({ todos, onDelete,onUpdateTodo }) => {
               todo={todo}
               onDelete={() => onDelete(todo.id)}
               onEdit={() => setEdit(todo)}
+              onCompleted={()=>onCompleted(todo.id)}
             />
           );
         })}

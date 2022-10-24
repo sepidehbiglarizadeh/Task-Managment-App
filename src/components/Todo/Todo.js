@@ -1,8 +1,8 @@
-import { FaEdit, FaTrashAlt } from "react-icons/fa";
+import { FaEdit, FaTrashAlt, FaCheck } from "react-icons/fa";
 import { colors } from "../../colors";
 import styles from "./Todo.module.css";
 
-const Todo = ({ todo ,onDelete,onEdit}) => {
+const Todo = ({ todo, onDelete, onEdit, onCompleted }) => {
   const item = colors[Math.floor(Math.random() * colors.length)];
 
   return (
@@ -11,12 +11,11 @@ const Todo = ({ todo ,onDelete,onEdit}) => {
       style={{ background: item.gradiant, borderLeftColor: item.color }}
     >
       <div className={styles.date}>{todo.date}</div>
-      <div className={styles.desc}>
-        <p>{todo.text}</p>
-        <label className={styles.container}>
-          <input type="checkbox" />
-          <span className={styles.checkmark}></span>
-        </label>
+      <div className={styles.desc} onClick={onCompleted}>
+        <p className={todo.isCompleted ? styles.completed : ""}>{todo.text}</p>
+        <FaCheck
+          className={todo.isCompleted ? styles.checkIcon : styles.hidden}
+        />
       </div>
       <div className={styles.btnsWrapper}>
         <button className={styles.edit} onClick={onEdit}>

@@ -7,6 +7,7 @@ import TodoList from "./components/TodoList/TodoList";
 function App() {
   const [todos, setTodos] = useState([]);
 
+
   const addNewTodoHandler = (inputValue) => {
     const newTodo = {
       id: Math.floor(Math.random() * 1000),
@@ -31,12 +32,26 @@ function App() {
     setTodos(filteredTodos);
   };
 
+  const completedHandler = (id) => {
+    const index = todos.findIndex((todo) => todo.id === id);
+    const selectedTodo = { ...todos[index] };
+    selectedTodo.isCompleted = !selectedTodo.isCompleted;
+    const updatedTodos = [...todos];
+    updatedTodos[index] = selectedTodo;
+    setTodos(updatedTodos);
+  };
+
   return (
     <main>
       <Header />
       <section className="appContent">
         <TodoForm submitTodoHandler={addNewTodoHandler} />
-        <TodoList todos={todos} onDelete={deleteTodoHandler} onUpdateTodo={updateTodoHandler}/>
+        <TodoList
+          todos={todos}
+          onDelete={deleteTodoHandler}
+          onUpdateTodo={updateTodoHandler}
+          onCompleted={completedHandler}
+        />
       </section>
     </main>
   );
