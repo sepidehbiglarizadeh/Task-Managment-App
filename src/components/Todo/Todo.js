@@ -7,7 +7,7 @@ const Todo = ({ todo, onDelete, onEdit, onCompleted }) => {
 
   return (
     <div
-      className={styles.todo}
+      className={`${styles.todo} ${todo.isCompleted ? styles.opacity : ""}`}
       style={{ background: item.gradiant, borderLeftColor: item.color }}
     >
       <div className={styles.date}>{todo.date}</div>

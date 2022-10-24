@@ -1,14 +1,14 @@
 import styles from "./Header.module.css";
 import logo from "../../assets/images/logo.png";
 
-const Header = () => {
+const Header = ({todos}) => {
   return (
     <header className={styles.header}>
         <div className={styles.content}>
           <div className={styles.imgContainer}>
             <img src={logo} alt="logo" />
           </div>
-          <CountTasks/>
+          <CountTasks todos={todos}/>
         </div>
         <div className={styles.text}>
           <h1>
@@ -23,19 +23,19 @@ const Header = () => {
 
 export default Header;
 
-const CountTasks = () => {
+const CountTasks = ({todos}) => {
   return (
     <div className={styles.countTasksContainer}>
       <div className={styles.countTasks}>
-        <span>0</span>
+        <span>{todos.length}</span>
         <span>All Tasks</span>
       </div>
-      <div>
-        <span>0</span>
+      <div className={styles.countTasks}>
+        <span>{todos.filter((todo)=> todo.isCompleted).length}</span>
         <span>Completed</span>
       </div>
-      <div>
-        <span>0</span>
+      <div className={styles.countTasks}>
+        <span>{todos.filter((todo)=> !todo.isCompleted).length}</span>
         <span>UnCompleted</span>
       </div>
     </div>

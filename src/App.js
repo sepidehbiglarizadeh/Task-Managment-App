@@ -7,7 +7,6 @@ import TodoList from "./components/TodoList/TodoList";
 function App() {
   const [todos, setTodos] = useState([]);
 
-
   const addNewTodoHandler = (inputValue) => {
     const newTodo = {
       id: Math.floor(Math.random() * 1000),
@@ -43,7 +42,7 @@ function App() {
 
   return (
     <main>
-      <Header />
+      <Header todos={todos}/>
       <section className="appContent">
         <TodoForm submitTodoHandler={addNewTodoHandler} />
         <TodoList
