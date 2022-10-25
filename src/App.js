@@ -6,6 +6,7 @@ import TodoList from "./components/TodoList/TodoList";
 
 function App() {
   const [todos, setTodos] = useState([]);
+  const [filteredTodos, setFilteredTodos] = useState([]);
 
   const addNewTodoHandler = (inputValue) => {
     const newTodo = {
@@ -15,6 +16,7 @@ function App() {
       date: new Date().toLocaleString(),
     };
     setTodos([...todos, newTodo]);
+    setFilteredTodos([...filteredTodos, newTodo]);
   };
 
   const updateTodoHandler = (id, newInputValue) => {
@@ -24,11 +26,13 @@ function App() {
     const updatedTodos = [...todos];
     updatedTodos[index] = selectedTodo;
     setTodos(updatedTodos);
+    setFilteredTodos(updatedTodos)
   };
 
   const deleteTodoHandler = (id) => {
     const filteredTodos = todos.filter((todo) => todo.id !== id);
     setTodos(filteredTodos);
+    setFilteredTodos(filteredTodos);
   };
 
   const completedHandler = (id) => {
@@ -38,18 +42,33 @@ function App() {
     const updatedTodos = [...todos];
     updatedTodos[index] = selectedTodo;
     setTodos(updatedTodos);
+    setFilteredTodos(updatedTodos);
+  };
+
+  const filtereTodosHandler = (value) => {
+    switch (value) {
+      case "completed":
+        setFilteredTodos(todos.filter((t) => t.isCompleted));
+        break;
+      case "unCompleted":
+        setFilteredTodos(todos.filter((t) => !t.isCompleted));
+        break;
+      default:
+        return setFilteredTodos(todos);
+    }
   };
 
   return (
-    <main>
-      <Header todos={todos}/>
+    <main className="app">
+      <Header todos={todos} />
       <section className="appContent">
         <TodoForm submitTodoHandler={addNewTodoHandler} />
         <TodoList
-          todos={todos}
+          todos={filteredTodos}
           onDelete={deleteTodoHandler}
           onUpdateTodo={updateTodoHandler}
           onCompleted={completedHandler}
+          onFilter={filtereTodosHandler}
         />
       </section>
     </main>

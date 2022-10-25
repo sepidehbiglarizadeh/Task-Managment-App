@@ -1,0 +1,36 @@
+.nav {
+  position: absolute;
+  bottom: 10px;
+  left: 10%;
+  right: 10%;
+  background-color: #f3f4f6;
+  padding: 0 1.5rem;
+  border-radius: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 50px;
+}
+
+.nav button{
+    cursor: pointer;
+    background-color: transparent;
+    height: 100%;
+    padding: 1rem;
+    color: #818cf8;
+    font-size: 2rem;
+    opacity: 0.6;
+    border: none;
+    outline: none;
+}
+
+.nav button:hover{
+    opacity: 1;
+}
+
+@media screen and (min-width:640px) {
+    .nav{
+        left:20%;
+        right: 20%;
+    }
+}
