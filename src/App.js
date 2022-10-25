@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import Header from "./components/Header/Header";
 import TodoForm from "./components/TodoForm/TodoForm";
@@ -7,6 +7,16 @@ import TodoList from "./components/TodoList/TodoList";
 function App() {
   const [todos, setTodos] = useState([]);
   const [filteredTodos, setFilteredTodos] = useState([]);
+
+  useEffect(() => {
+    if (todos.length) localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
+
+  useEffect(() => {
+    const savedTodos = JSON.parse(localStorage.getItem("todos")) || [];
+    setTodos(savedTodos);
+    setFilteredTodos(savedTodos);
+  }, []);
 
   const addNewTodoHandler = (inputValue) => {
     const newTodo = {
@@ -26,13 +36,14 @@ function App() {
     const updatedTodos = [...todos];
     updatedTodos[index] = selectedTodo;
     setTodos(updatedTodos);
-    setFilteredTodos(updatedTodos)
+    setFilteredTodos(updatedTodos);
   };
 
   const deleteTodoHandler = (id) => {
     const filteredTodos = todos.filter((todo) => todo.id !== id);
     setTodos(filteredTodos);
     setFilteredTodos(filteredTodos);
+    localStorage.removeItem("todos");
   };
 
   const completedHandler = (id) => {

@@ -1,5 +1,5 @@
 import styles from "./Navbar.module.css"
-import { FaTasks,FaSearch,FaCheck ,FaHourglassStart} from "react-icons/fa";
+import { FaTasks,FaCheck ,FaHourglassStart} from "react-icons/fa";
 
 
 const Navbar = ({onFilter}) => {
