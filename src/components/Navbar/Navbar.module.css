@@ -1,5 +1,5 @@
 .nav {
-  position: absolute;
+  position: fixed;
   bottom: 10px;
   left: 10%;
   right: 10%;

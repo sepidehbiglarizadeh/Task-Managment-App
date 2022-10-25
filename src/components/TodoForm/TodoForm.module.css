@@ -1,5 +1,4 @@
 .form {
-  max-width: 500px;
   margin: 0 auto;
   margin-bottom: 2rem;
   padding: 0 1.5rem;
@@ -41,4 +40,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media screen and (min-width:640px) {
+  .form{
+    width: 500px;
+  }
 }

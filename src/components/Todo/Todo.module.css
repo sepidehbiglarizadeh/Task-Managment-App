@@ -4,11 +4,18 @@
   padding: 1rem;
   border-left-style: solid;
   border-left-width: 5px;
+  transition: all 0.3s ease;
+  box-shadow: -1px 2px 12px -1px rgba(204,204,204,0.49);
+
+}
+
+.todo:hover{
+  transform: scale(1.1);
+
 }
 
 .date {
   font-size: 1rem;
-  margin-bottom: 1rem;
   text-align: right;
 }
 
@@ -16,7 +23,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1.8rem;
+  padding: 1.8rem 0;
   font-weight: bold;
   cursor: pointer;
 }
