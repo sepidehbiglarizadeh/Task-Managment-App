@@ -34,7 +34,6 @@ const TodoList = ({ todos, onDelete, onUpdateTodo, onCompleted, onFilter }) => {
             />
           );
         })}
-        <Navbar onFilter={onFilter} />
       </>
     );
   };
@@ -45,8 +44,8 @@ const TodoList = ({ todos, onDelete, onUpdateTodo, onCompleted, onFilter }) => {
         <TodoForm submitTodoHandler={editTodoHandler} edit={edit} />
       ) : (
         renderTodos()
-        
       )}
+      <Navbar onFilter={onFilter} />
     </section>
   );
 };
