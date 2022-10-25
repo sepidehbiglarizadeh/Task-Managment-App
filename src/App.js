@@ -65,7 +65,7 @@ function App() {
         setFilteredTodos(todos.filter((t) => !t.isCompleted));
         break;
       default:
-        return setFilteredTodos(todos);
+        setFilteredTodos(todos);
     }
   };
 

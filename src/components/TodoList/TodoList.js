@@ -4,7 +4,7 @@ import Todo from "../Todo/Todo";
 import TodoForm from "../TodoForm/TodoForm";
 import styles from "./TodoList.module.css";
 
-const TodoList = ({ todos, onDelete, onUpdateTodo, onCompleted, onFilter }) => {
+const TodoList = ({ todos, onDelete, onUpdateTodo, onCompleted, onFilter}) => {
   const [edit, setEdit] = useState({
     id: null,
     text: "",
@@ -45,7 +45,7 @@ const TodoList = ({ todos, onDelete, onUpdateTodo, onCompleted, onFilter }) => {
       ) : (
         renderTodos()
       )}
-      <Navbar onFilter={onFilter} />
+      <Navbar onFilter={onFilter}/>
     </section>
   );
 };
